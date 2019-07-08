@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+<h4 class="text-orange">Audio description code below:</h4>
+</div>
+<div class="container">
+<textarea readonly style="background-color:#FFFACD" rows="40" cols="150">
+{% for i in range (0, length) %}
+<br>
+<div class="container">
+&lt;br&gt;
+&lt;h3&gt;{{ files[i] }}&lt;/h3&gt;
+&lt;iframe width="510px" height="631px" frameBorder="0" src="//plugin.3playmedia.com/show?data_partner_id=2159741&mf={{ file_idlist[i] }}&p=10896&height=300px&width=500px&player_id=37822691&pt=45&vembed=1&video_id={{ entryids[i] }}&video_target=tpm-plugin-qflvpwfl-{{ entryids[i] }}"&gt;&lt;/iframe&gt;
+&lt;br&gt;
+</div>
+<div class="container">
+AUDIO DESCRIPTION CODE:&lt;br&gt;
+&lt;textarea readonly style="background-color:#FFFACD" rows="18" cols="150"&gt;
+&amp;lt;iframe width=&amp;quot;510px&amp;quot; height=&amp;quot;631px&amp;quot; frameBorder=&amp;quot;0&amp;quot; src=&amp;quot;//plugin.3playmedia.com/show?data_partner_id=2159741&amp;mf={{ file_idlist[i] }}&amp;p=10896&amp;height=300px&amp;width=500px&amp;player_id=37822691&amp;pt=45&amp;vembed=1&amp;video_id={{ entryids[i] }}&amp;video_target=tpm-plugin-qflvpwfl-{{ entryids[i] }}&amp;quot;&amp;gt;&amp;lt;/iframe&amp;gt;
+&lt;/textarea&gt;
+&lt;br&gt;
+&lt;hr&gt;
+</div>
+
+<br>
+<br>
+{% endfor %}
+</textarea>
+</div>
+
+{% endblock %}

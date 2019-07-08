@@ -1,0 +1,25 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main>
+    <div class="container">
+        <h2 class="text-orange">Caption Files</h2>
+        <div>The following files have successfully been updated in 3Play:</div>
+
+        <table class="table table-striped">
+        {% for file in newfiles %}
+          <tr>
+            <td>
+            {{ file }}
+            </td>
+          </tr>
+        {% endfor %}
+        </table>
+    </div>
+
+</main>
+
+
+{% endblock %}

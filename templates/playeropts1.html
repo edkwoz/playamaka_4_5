@@ -1,0 +1,20 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main>
+    <div class="container">
+        <h3 class="text-orange">Player options:</h3>
+        <form method="POST" action="/selectfiles">
+        <table class="table table-striped">
+          <tr>
+            {{ form.playerchoice }}
+          </tr>
+          {{ form.submit() }}
+        </form>
+    </div>
+</main>
+
+
+{% endblock %}

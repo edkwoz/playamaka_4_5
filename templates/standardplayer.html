@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+<h4 class="text-orange">Copy the code below and paste into the preview page:</h4>
+</div>
+<div class="container">
+<textarea readonly style="background-color:#FFFACD" rows="40" cols="150">
+{% for i in range (0, length) %}
+
+<br>
+<div class="container">
+&lt;br&gt;
+&lt;h3&gt;{{ files[i] }}&lt;/h3&gt;
+
+&lt;script src="https://cdnapisec.kaltura.com/p/2159741/sp/215974100/embedIframeJs/uiconf_id/37822691/partner_id/2159741"&gt;&lt;/script&gt;
+&lt;div id="{{ files[i] }}" style="width: 524px; height: 331px;"&gt;{{ files[i] }} video cannot be displayed here&lt;/div&gt;
+&lt;script&gt;
+kWidget.embed({
+"targetId": "{{ files[i] }}",
+"wid": "_2159741",
+"uiconf_id": 37822691,
+"cache_st": 1491572044,
+"entry_id": "{{ entryids[i] }}",
+"flashvars": {
+"streamerType": "auto",
+{% if download_option == 'downloaddisable' %}"download.plugin": false,{% endif %}
+}
+});
+&lt;/script&gt;
+&lt;script src="https://static.3playmedia.com/p/projects/10896/files/{{ files[i] }}/embed.js?plugin=transcript&amp;settings=height:300,width:524,skin:frost,can_collapse:true,can_print:true,can_download:true&amp;player_type=kaltura&amp;player_id={{ files[i] }}&amp;usevideoid=1"&gt;&lt;/script&gt;
+&lt;br&gt;
+</div>
+<div class="container">
+PLAYER CODE:&lt;br&gt;
+&lt;textarea readonly style="background-color:#FFFACD" rows="18" cols="150"&gt;
+&amp;lt;script src="https://cdnapisec.kaltura.com/p/2159741/sp/215974100/embedIframeJs/uiconf_id/37822691/partner_id/2159741"&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;div id="{{ files[i] }}" style="width: 524px; height: 331px;"&amp;gt;{{ files[i] }} video cannot be displayed here&amp;lt;/div&amp;gt;
+&amp;lt;script&amp;gt;
+kWidget.embed({
+"targetId": "{{ files[i] }}",
+"wid": "_2159741",
+"uiconf_id": 37822691,
+"cache_st": 1491572044,
+"entry_id": "{{ entryids[i] }}",
+"flashvars": {
+"streamerType": "auto",
+{% if download_option == 'downloaddisable' %}"download.plugin": false,{% endif %}
+}
+});
+&amp;lt;/script&amp;gt;
+&amp;lt;script&amp;gt;window.parent.document.querySelector('iframe').setAttribute('allowfullscreen',true);&amp;lt;/script&amp;gt;
+&amp;lt;script src="https://static.3playmedia.com/p/projects/10896/files/{{ files[i] }}/embed.js?plugin=transcript&amp;settings=height:300,width:524,skin:frost,can_collapse:true,can_print:true,can_download:true&amp;player_type=kaltura&amp;player_id={{ files[i] }}&amp;usevideoid=1"&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/textarea&gt;
+&lt;br&gt;
+&lt;hr&gt;
+</div>
+
+<br>
+<br>
+{% endfor %}
+</textarea>
+</div>
+
+{% endblock %}

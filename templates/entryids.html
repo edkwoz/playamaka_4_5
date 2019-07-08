@@ -1,0 +1,34 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main>
+    <div class="container">
+        <h3 class="text-orange">Entry ids:</h3>
+        <form method="POST" action="/codeout">
+        <table class="table table-striped">
+          <tr>
+            <th>video file</th>
+            <th>kaltura id</th>
+          </tr>
+          {% for file in newfiles %}
+          <tr>
+            <td>
+            {{ file }}
+            </td>
+            <td>
+            {{ form.entryid }}
+            </td>
+          </tr>
+          {% endfor %}
+          </table>
+          {{ form.downloadopts }}
+          <br>
+          {{ form.submit() }}
+          </form>
+    </div>
+</main>
+
+
+{% endblock %}

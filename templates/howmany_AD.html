@@ -1,0 +1,23 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main>
+    <div class="container">
+        <h3 class="text-orange">How Many?</h3>
+        <form method="POST" action="/enterfiles_AD">
+
+            <div>
+            {{ form.amount }}
+            </div>
+            <br>
+
+            {{ form.submit() }}
+
+        </form>
+    </div>
+</main>
+
+
+{% endblock %}

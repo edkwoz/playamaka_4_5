@@ -1,0 +1,33 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main>
+    <div class="container">
+        <h3 class="text-orange">Enter file names:</h3>
+        <form method="POST" action="/entryids">
+            <br>
+            <div>
+            {% for i in range(numfilesint) %}
+            <tr>
+              <td>
+              {{ i + 1 }}.
+              </td>
+              <td>
+              {{ form.filename(size=50) }}
+              </td>
+            </tr>
+            <br>
+            <br>
+            {% endfor %}
+            </div>
+            <br>
+            {{ form.submit() }}
+        </form>
+
+    </div>
+</main>
+
+
+{% endblock %}

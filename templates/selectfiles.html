@@ -1,0 +1,31 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main>
+    <div class="container">
+        <h3 class="text-orange">Select files:</h3>
+        <form method="POST" action="/entryids">
+
+            <div>
+            {{ form.videofile }}
+            </div>
+            <br>
+
+            {{ form.submit() }}
+
+        </form>
+
+    </div>
+    <br>
+    <br>
+    <div class="container">
+      <p>If you would rather type in file names,
+        <a href="/howmany">CLICK HERE</a>
+      </p>
+    </div>
+</main>
+
+
+{% endblock %}

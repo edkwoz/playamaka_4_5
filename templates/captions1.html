@@ -1,0 +1,23 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main>
+    <div class="container">
+        <h3 class="text-orange">CAPTIONS: Select files to edit metadata</h3>
+        <form method="POST" action="/captions2">
+<!-- form input is multiple files -->
+            <div>
+            {{ form.captionfile }}
+            </div>
+            <br>
+
+            {{ form.sendmetadata() }}
+
+        </form>
+    </div>
+</main>
+
+
+{% endblock %}

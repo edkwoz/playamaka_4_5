@@ -1,0 +1,173 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+<h4 class="text-orange">Copy the code below and paste into the preview page:</h4>
+</div>
+<form method="POST" action="/slideplayer2">
+
+<div class="container">  
+{{ form.continuetonext }}
+<br>
+<textarea readonly style="background-color:#FFFACD" rows="40" cols="150">
+
+  &lt;!-- output from playamaka 4_1 --&gt;
+
+  &lt;!DOCTYPE html&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+  &lt;style&gt;
+  * {box-sizing:border-box}
+  body {font-family: Verdana,sans-serif;margin:0}
+  .mySlides {display:none}
+
+  .slideshow-container {
+  max-width: {{ width }}px;
+  max-height: {{ height }}px;
+  position: relative;
+  margin: auto;
+  }
+
+  .prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  }
+
+  .next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+  }
+
+  .prev:hover, .next:hover {
+  background-color: rgba(0,0,0,1.0);
+  }
+
+  .numbertext {
+  color: #ffffff;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  img {
+  width: {{ width }}px;
+  height: {{ height }}px;
+}
+
+  .dot {
+  cursor:pointer;
+  height: 10px;
+  width: 10px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+  }
+
+  .active, .dot:hover {
+  background-color: #717171;
+  }
+
+  {% if fadeopt %}
+
+  .fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+
+  @-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
+
+  @keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
+
+  {% else %}
+
+  {% endif %}
+  @media only screen and (max-width: 300px) {
+    .prev, .next,.text {font-size: 11px}
+  }
+
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div class="slideshow-container"&gt;
+
+{% for i in range (0, length) %}
+&lt;div class="mySlides fade"&gt;
+  &lt;div class="numbertext"&gt;{{ i+1 }} / {{ length }}&lt;/div&gt;
+  &lt;img src="img/{{ files[i] }}" style="width:100%"&gt;
+&lt;/div&gt;
+
+{% endfor %}
+
+&lt;a class="prev" onclick="plusSlides(-1)"&gt;&amp;#10094;&lt;/a&gt;
+&lt;a class="next" onclick="plusSlides(1)"&gt;&amp;#10095;&lt;/a&gt;
+
+&lt;/div&gt;
+&lt;br&gt;
+&lt;div style="text-align:center"&gt;
+{% for i in range (0, length) %}
+  &lt;span class="dot" onclick="currentSlide({{ i }})"&gt;&lt;/span&gt;
+{% endfor %}
+&lt;/div&gt;
+
+&lt;script&gt;
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n &gt; slides.length) {slideIndex = 1}
+  if (n &lt; 1) {slideIndex = slides.length}
+  for (i = 0; i &lt; slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i &lt; dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+
+</textarea>
+</div>
+</form>
+
+
+{% endblock %}
